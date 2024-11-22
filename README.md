@@ -2,11 +2,13 @@
 
 This project has the necessary code for the reactive programming course using Project Reactor
 
-
 * Reactive programming use Functional style code.
 
   * In imperative programming, you tell the computer what to do step by step that's a **how**, but in functional programming, you tell the computer what you want to achieve that's a **what**.
 
+## TO DOS ✅
+
+- What is an epoch? 
 
 ## Testing ✅
 
@@ -50,6 +52,13 @@ Flux<String> flux = Flux.just("A", "B", "C")
     .doOnSubscribe(subscription -> System.out.println("Subscribed"))
     .doOnRequest(l -> System.out.println("Request: " + l))
     .doOnCancel(() -> System.out.println("Cancelled"))
+    .doOnError(e -> System.out.println("Error: " + e.getMessage()))
+
+    // Error Handling Operators
+    .onErrorReturn("Z")
+    .onErrorResume(e -> Flux.just("Z", "Y"))
+    .onErrorContinue((e, o) -> {})
+    .onErrorMap(e -> new RuntimeException("Something bad happened"))
     .doOnError(e -> System.out.println("Error: " + e.getMessage()))
 ```
 

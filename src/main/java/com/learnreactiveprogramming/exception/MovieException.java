@@ -1,7 +1,9 @@
 package com.learnreactiveprogramming.exception;
 
 public class MovieException extends RuntimeException {
-    String message;
+
+    private String message;
+
     public MovieException(String message) {
         super(message);
         this.message = message;

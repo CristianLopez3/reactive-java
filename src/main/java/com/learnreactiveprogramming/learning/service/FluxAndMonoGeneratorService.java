@@ -31,6 +31,13 @@ public class FluxAndMonoGeneratorService {
                 .log();
     }
 
+    public Flux<String> exceptionFlux(){
+        return Flux.just("A", "B", "C")
+                .concatWith(Flux.error(new RuntimeException("Exception Occurred")))
+                .concatWith(Flux.just("D"));
+    }
+
+
     public Flux<String> namesFluxImmutability(){
         var namesFlux =   Flux.fromIterable(List.of("Alex", "Ben", "Chloe"));
         namesFlux.map(String::toUpperCase);
@@ -83,6 +90,12 @@ public class FluxAndMonoGeneratorService {
 
     public Mono<String> namesMono(){
         return  Mono.just("Alex");
+    }
+
+    public Flux<String> exploreFluxOnError(){
+        return Flux.just("A", "B", "C")
+                .concatWith(Flux.error(new IllegalArgumentException("Exception Occurred")))
+                .onErrorReturn("D");
     }
 
     public static void main(String[] args) {
