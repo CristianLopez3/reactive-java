@@ -12,8 +12,9 @@ class MovieReactiveServiceTest {
 
     private final MovieInfoService movieInfoService = new MovieInfoService();
     private final ReviewService reviewService = new ReviewService();
+    private RevenueService revenueService = new RevenueService();
 
-    MovieReactiveService movieReactiveService = new MovieReactiveService(movieInfoService, reviewService);
+    MovieReactiveService movieReactiveService = new MovieReactiveService(movieInfoService, reviewService, revenueService);
 
     @Test
     void testGetAllMovies(){
@@ -49,4 +50,16 @@ class MovieReactiveServiceTest {
                 .verifyComplete();
     }
 
+    @Test
+    void getMovieByIdWithRevenue() {
+        Mono<Movie> movie = movieReactiveService.getMovieByIdWithRevenue(100L).log();
+        StepVerifier.create(movie)
+                .assertNext(m -> {
+                    assertNotNull(m.getRevenue());
+                    assertEquals("Batman Begins", m.getMovie().getName());
+                    assertEquals(2, m.getReviewList().size());
+                })
+                .verifyComplete();
+
+    }
 }

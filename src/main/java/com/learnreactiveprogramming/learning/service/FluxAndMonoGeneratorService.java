@@ -171,7 +171,7 @@ public class FluxAndMonoGeneratorService {
                 })
                 .onErrorContinue((ex, name) -> {
                     log.error("Exception is: ", ex);
-                    log.info("Name is: {}", name);
+                     log.info("Name is: {}", name);
                 })
                 .log();
     }

@@ -60,6 +60,16 @@ Flux<String> flux = Flux.just("A", "B", "C")
     .onErrorContinue((e, o) -> {})
     .onErrorMap(e -> new RuntimeException("Something bad happened"))
     .doOnError(e -> System.out.println("Error: " + e.getMessage()))
+        
+    // Recover from an error
+    .retry()
+    .retry(N) // retry N times
+    .retryWhen()
+        
+    // thread execution
+    .publushOn(Schedulers.parallel()) // use when we have a blocking operation
+    .subscribeOn(Schedulers.boundedElastic()) // use when we have a blocking operation
+
 ```
 
 ## Important Concepts ✅
@@ -111,3 +121,8 @@ _Herramientas y conceptos comunes_:
 
 > [!IMPORTANT]
 > Ambos conceptos son complementarios: la concurrencia gestiona los recursos, mientras que la reactividad los organiza en un flujo de datos limpio y eficiente.
+
+
+## Backpressure ✅
+
+It's a mechanism to ensure that a fast producer doesn't overwhelm a slow consumer.
