@@ -14,6 +14,9 @@ This project has the necessary code for the reactive programming course using Pr
 - What is the Schedulers class made for?
 - How you test reactive code?
 
+>[!TIP]
+> Understand examples and doming the concept to pass the interviews
+
 ## Testing ✅
 
 Use the **Step Verifier** to test the reactive code.
