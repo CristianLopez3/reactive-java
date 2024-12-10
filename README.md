@@ -15,7 +15,7 @@ This project has the necessary code for the reactive programming course using Pr
 - How you test reactive code?
 
 >[!TIP]
-> Understand examples and doming the concept to pass the interviews
+> Understand examples and doming the concept to pass the interviews and of course take notes to improve constantly.
 
 ## Testing ✅
 
