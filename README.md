@@ -1,6 +1,6 @@
 # Reactive-programming-using-reactor
 
-This project has the necessary code for the reactive programming course using Project Reactor
+This project has the necessary code for the reactive programming course using Project Reactor, sorry if you find SpanEnglish, I'm learning English and I'm trying to improve it.
 
 * Reactive programming use Functional style code.
 
