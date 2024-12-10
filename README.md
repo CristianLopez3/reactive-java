@@ -6,9 +6,13 @@ This project has the necessary code for the reactive programming course using Pr
 
   * In imperative programming, you tell the computer what to do step by step that's a **how**, but in functional programming, you tell the computer what you want to achieve that's a **what**.
 
-## TO DOS ✅
+## Repetitive questions to dominate reactive programming ⁉️⁉
 
-- What is an epoch? 
+- What is an epoch?
+- What is a callback?
+- What is backpressure?
+- What is the Schedulers class made for?
+- How you test reactive code?
 
 ## Testing ✅
 
@@ -137,3 +141,24 @@ If a consumer cannot keep up with the incoming data, several strategies can be e
 * Buffering: Temporarily store excess data until the consumer is ready to process it.
 * Dropping: Discard excess data if it cannot be processed in time.
 * Throttling: Slow down the producer to match the consumer's processing speed.
+
+## Schedulers ✅
+
+Schedulers are a way to control the execution of the code. They allow you to specify where and when the code should run.
+For example, you can run a piece of code on a separate thread or on the main thread. Schedulers
+are especially useful when dealing with blocking operations or when you need to control the concurrency of the code.
+
+**_Common Schedulers_**:
+* Schedulers.immediate(): Run the code immediately on the current thread.
+* Schedulers.single(): Run the code on a single reusable thread.
+* Schedulers.parallel(): Run the code on a fixed pool of parallel threads.
+* Schedulers.elastic(): Run the code on an elastic pool of threads.
+* Schedulers.boundedElastic(): Run the code on a bounded elastic pool of threads.
+
+**Operators used with Schedulers**: You can use the publishOn() and subscribeOn() operators to specify the scheduler for
+a particular part of the code.
+
+**subscribeOn**: Specifies the scheduler on which the subscription should happen (e.g., when you call subscribe(), i.e. from the start ).
+
+**publishOn**: Specifies the scheduler on which the subsequent operators should run (e.g., when you call map(), filter(), etc.).
+
