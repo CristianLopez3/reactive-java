@@ -126,3 +126,14 @@ _Herramientas y conceptos comunes_:
 ## Backpressure ✅
 
 It's a mechanism to ensure that a fast producer doesn't overwhelm a slow consumer.
+The concept of backpressure is formalized in the Reactive Streams specification. It defines how producers and consumers can communicate about the rate of data flow using a subscription model.
+Request Mechanism:
+
+In a typical reactive setup, the consumer can request a specific amount of data from the producer. For example, a consumer can say, "I can handle 5 more items," and the producer will then send exactly 5 items. This is often done using the request(n) method.
+**_Handling Backpressure_**:
+
+If a consumer cannot keep up with the incoming data, several strategies can be employed:
+
+* Buffering: Temporarily store excess data until the consumer is ready to process it.
+* Dropping: Discard excess data if it cannot be processed in time.
+* Throttling: Slow down the producer to match the consumer's processing speed.
